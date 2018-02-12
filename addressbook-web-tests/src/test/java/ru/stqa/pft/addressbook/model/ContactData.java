@@ -9,7 +9,6 @@ public class ContactData {
     private final String title;
     private final String company;
     private final String address;
-   // private final String theform;
     private final String home;
     private final String mobile;
     private final String work;
@@ -24,7 +23,7 @@ public class ContactData {
     private final String notes;
 
 
-    public ContactData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, /*String theform,*/ String home, String mobile, String work, String fax, String email, String email2, String email3, String homepage, String byear, String ayear, String address2, String notes) {
+    public ContactData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobile, String work, String fax, String email, String email2, String email3, String homepage, String byear, String ayear, String address2, String notes) {
         this.firstname = firstname;
         this.middlename = middlename;
         this.lastname = lastname;
@@ -32,7 +31,6 @@ public class ContactData {
         this.title = title;
         this.company = company;
         this.address = address;
-      //  this.theform = theform;
         this.home = home;
         this.mobile = mobile;
         this.work = work;
@@ -74,10 +72,6 @@ public class ContactData {
     public String getAddress() {
         return address;
     }
-
-    /*public String getTheform() {
-       return theform;
-    } */
 
     public String getHome() {
         return home;

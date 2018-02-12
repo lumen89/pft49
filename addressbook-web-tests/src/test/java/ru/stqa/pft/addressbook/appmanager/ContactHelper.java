@@ -12,9 +12,7 @@ public class ContactHelper extends HelperBase {
     }
 
 
-    public void goToContactPage() {
-        click(By.linkText("add new"));
-    }
+
 
     public void fillContactForm(ContactData contactData) {
         click(By.name("firstname"));
@@ -38,7 +36,7 @@ public class ContactHelper extends HelperBase {
         click(By.name("address"));
         type(By.name("address"), contactData.getAddress());
 
-        click(By.name("theform"));
+        //click(By.name("theform"));
 
         click(By.name("home"));
         type(By.name("home"), contactData.getHome());
@@ -52,21 +50,18 @@ public class ContactHelper extends HelperBase {
         click(By.name("fax"));
         type(By.name("fax"), contactData.getFax());
 
-        click(By.name("theform"));
-
         click(By.name("email"));
         type(By.name("email"), contactData.getEmail());
 
         click(By.name("email2"));
-        type(By.name("email2"), contactData.getEmail());
+        type(By.name("email2"), contactData.getEmail2());
 
         click(By.name("email3"));
-        type(By.name("email3"), contactData.getEmail());
+        type(By.name("email3"), contactData.getEmail3());
 
         click(By.name("homepage"));
-        type(By.name("homepage"), contactData.getEmail());
+        type(By.name("homepage"), contactData.getHomepage());
 
-        click(By.name("theform"));
         if (!wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[11]")).isSelected()) {
             wd.findElement(By.xpath("//div[@id='content']/form/select[1]//option[11]")).click();
         }
@@ -87,9 +82,6 @@ public class ContactHelper extends HelperBase {
         click(By.name("ayear"));
         type(By.name("ayear"), contactData.getAyear());
 
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/select[5]//option[3]")).isSelected()) {
-            wd.findElement(By.xpath("//div[@id='content']/form/select[5]//option[3]")).click();
-        }
 
         click(By.name("address2"));
         type(By.name("address2"), contactData.getAddress2());
@@ -104,10 +96,22 @@ public class ContactHelper extends HelperBase {
     }
 
     public void selectContact() {
-        click(By.name());
+        click(By.xpath(".//*[@id='1']"));
     }
 
     public void deleteSelectContacts() {
-        click(By.name());
+        click(By.xpath(".//*[@value='Delete']"));
+    }
+
+    public void submitContactModification() {
+        click(By.xpath(".//*[@value = \"Update\"][1]"));
+    }
+
+    public void initContactEdition() {
+        click(By.xpath(".//*[@title = 'Edit'][1]"));
+    }
+
+    public void returnToHomePage() {
+        click(By.linkText("home page"));
     }
 }
