@@ -1,9 +1,7 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
@@ -126,4 +124,24 @@ public class ContactHelper extends HelperBase {
     public void returnToHomePage() {
         click(By.linkText("home page"));
     }
+
+    public boolean isThereAContact() {
+        return isElementPresent(By.name("selected[]"));
+    }
+
+    public void createContact(ContactData contactData, boolean creation) {
+        initContactCreation();
+        fillContactForm(contactData, true);
+        submitContactCreation();
+        returnToHomePage();
+    }
+
+    public void initContactCreation() {
+        if(isElementPresent(By.tagName("h1"))
+                && wd.findElement(By.tagName("h1")).getText().equals("Edit / add address book entry")) {
+            return;
+        }
+        click(By.linkText("add new"));
+    }
+
 }
