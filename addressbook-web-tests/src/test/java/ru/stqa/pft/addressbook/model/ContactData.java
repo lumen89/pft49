@@ -29,7 +29,7 @@ public class ContactData {
 
 
     public ContactData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobile, String work, String fax, String email, String email2, String email3, String homepage, String byear, String ayear, String address2, String notes, String group) {
-        this.id = Integer.MAX_VALUE;
+        this.id = 0;
         this.firstname = firstname;
         this.middlename = middlename;
         this.lastname = lastname;
@@ -162,25 +162,27 @@ public class ContactData {
     public String getGroup() { return group; }
 
     @Override
-    public String toString() {
-        return "ContactData{" +
-                "id=" + id +
-                ", lastname='" + lastname + '\'' +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ContactData that = (ContactData) o;
-        return Objects.equals(lastname, that.lastname);
+        return Objects.equals(firstname, that.firstname) &&
+                Objects.equals(lastname, that.lastname);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(lastname);
+        return Objects.hash(firstname, lastname);
+    }
+
+    @Override
+    public String toString() {
+        return "ContactData{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                '}';
     }
 
 }
