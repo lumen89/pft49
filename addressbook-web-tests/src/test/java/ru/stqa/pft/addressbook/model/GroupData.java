@@ -16,11 +16,6 @@ public class GroupData {
     }
 
 
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(name);
-    }
 
     public GroupData(String name, String header, String footer) {
         this.id = Integer.MAX_VALUE;
@@ -71,5 +66,10 @@ public class GroupData {
         return Objects.equals(name, groupData.name);
     }
 
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(name);
+    }
 
 }

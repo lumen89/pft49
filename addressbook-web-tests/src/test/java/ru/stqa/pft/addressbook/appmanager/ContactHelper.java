@@ -122,8 +122,8 @@ public class ContactHelper extends HelperBase {
         click(By.xpath(".//*[@value = \"Update\"][1]"));
     }
 
-    public void initContactEdition() {
-        click(By.xpath(".//*[@title = 'Edit'][1]"));
+    public void initContactEdition(int index) {
+        wd.findElements(By.xpath(".//*[@title = 'Edit'][1]")).get(index).click();
     }
 
     public void returnToHomePage() {
@@ -149,7 +149,29 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("add new"));
     }
 
+    public int getContactCount() {
+        return wd.findElements(By.xpath("//*[@name=\"entry\"]")).size();
+    }
 
+    public List<ContactData> getContactList() {
+        List<ContactData> contacts = new ArrayList<>();
+        List<WebElement> elements = wd.findElements(By.xpath("//tr[@name = \"entry\"]"));
+        for (WebElement element : elements) {
+         String lastname = element.getText();
+         ContactData contact = new ContactData(null, null, lastname, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+        contacts.add(contact);
+        }
+
+        return contacts;
+
+    }
+
+
+
+
+
+
+/*
     public List<ContactData> getContactList() {
         List<ContactData> contacts = new ArrayList<ContactData>();
         List<WebElement> elements = wd.findElements((By.xpath("//*[@name=\"entry\"]")));
@@ -162,5 +184,5 @@ public class ContactHelper extends HelperBase {
         return contacts;
 
     }
-
+*/
 }
