@@ -158,7 +158,7 @@ public class ContactHelper extends HelperBase {
         List<WebElement> elements = wd.findElements(By.xpath("//tr[@name=\"entry\"]//td[2]"));
         for (WebElement element : elements) {
          String lastname = element.getText();
-         String id = wd.findElement(By.xpath("//*[@name=\"selected[]\"]")).getAttribute("value");
+         int id = Integer.parseInt(wd.findElement(By.xpath("//*[@name=\"selected[]\"]")).getAttribute("value"));
          ContactData contact = new ContactData(id,null, null, lastname, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
         contacts.add(contact);
         }
@@ -167,23 +167,4 @@ public class ContactHelper extends HelperBase {
 
     }
 
-
-
-
-
-
-/*
-    public List<ContactData> getContactList() {
-        List<ContactData> contacts = new ArrayList<ContactData>();
-        List<WebElement> elements = wd.findElements((By.xpath("//*[@name=\"entry\"]")));
-        for (WebElement element : elements) {
-            String name = element.getText();
-            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            ContactData contact = new ContactData("first name 1", "middle name 1", "last name 1", "nickname 1", "title 1", "company 1", "address 1", "9999999", "8888888", "77777777", "6666666", "email1@test.com", "email2@test.com", "email3@test.com", "localhost.com", "1988", "2015", "secondary address 1", "test notes", "edit_group 1");
-            contacts.add(contact);
-        }
-        return contacts;
-
-    }
-*/
 }

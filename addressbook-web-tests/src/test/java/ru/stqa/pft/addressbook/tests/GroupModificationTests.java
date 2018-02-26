@@ -1,6 +1,5 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.apache.http.util.Asserts;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
