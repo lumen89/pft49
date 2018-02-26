@@ -4,6 +4,7 @@ package ru.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
+    private final String id;
     private final String firstname;
     private final String middlename;
     private final String lastname;
@@ -25,8 +26,8 @@ public class ContactData {
     private final String notes;
     private String group;
 
-
     public ContactData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobile, String work, String fax, String email, String email2, String email3, String homepage, String byear, String ayear, String address2, String notes, String group) {
+        this.id = null;
         this.firstname = firstname;
         this.middlename = middlename;
         this.lastname = lastname;
@@ -48,6 +49,33 @@ public class ContactData {
         this.notes = notes;
         this.group = group;
     }
+
+
+    public ContactData(String id, String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobile, String work, String fax, String email, String email2, String email3, String homepage, String byear, String ayear, String address2, String notes, String group) {
+        this.id = id;
+        this.firstname = firstname;
+        this.middlename = middlename;
+        this.lastname = lastname;
+        this.nickname = nickname;
+        this.title = title;
+        this.company = company;
+        this.address = address;
+        this.home = home;
+        this.mobile = mobile;
+        this.work = work;
+        this.fax = fax;
+        this.email = email;
+        this.email2 = email2;
+        this.email3 = email3;
+        this.homepage = homepage;
+        this.byear = byear;
+        this.ayear = ayear;
+        this.address2 = address2;
+        this.notes = notes;
+        this.group = group;
+    }
+
+    public String getId() {return id;}
 
     public String getFirstname() {
         return firstname;
@@ -130,7 +158,8 @@ public class ContactData {
     @Override
     public String toString() {
         return "ContactData{" +
-                "lastname='" + lastname + '\'' +
+                "id='" + id + '\'' +
+                ", lastname='" + lastname + '\'' +
                 '}';
     }
 
@@ -139,12 +168,13 @@ public class ContactData {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ContactData that = (ContactData) o;
-        return Objects.equals(lastname, that.lastname);
+        return Objects.equals(id, that.id) &&
+                Objects.equals(lastname, that.lastname);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(lastname);
+        return Objects.hash(id, lastname);
     }
 }
