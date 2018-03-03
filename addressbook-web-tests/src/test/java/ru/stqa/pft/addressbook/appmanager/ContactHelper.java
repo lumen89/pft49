@@ -134,14 +134,14 @@ public class ContactHelper extends HelperBase {
         return isElementPresent(By.name("selected[]"));
     }
 
-    public void createContact(ContactData contactData, boolean creation) {
+    public void create(ContactData contactData, boolean creation) {
         initContactCreation();
         fillContactForm(contactData, true);
         submitContactCreation();
         returnToHomePage();
     }
 
-    public void deleteContact(int index) {
+    public void delete(int index) {
         initContactEdition(index);
         deleteSelectContacts();
     }
@@ -166,7 +166,7 @@ public class ContactHelper extends HelperBase {
         return wd.findElements(By.xpath("//*[@name=\"entry\"]")).size();
     }
 
-    public List<ContactData> getContactList() {
+    public List<ContactData> list() {
         List<ContactData> contacts = new ArrayList<>();
         List<WebElement> elements = wd.findElements(By.xpath("//tr[@name=\"entry\"]"));
         for (WebElement element : elements) {
