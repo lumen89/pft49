@@ -141,6 +141,19 @@ public class ContactHelper extends HelperBase {
         returnToHomePage();
     }
 
+    public void deleteContact(int index) {
+        initContactEdition(index);
+        deleteSelectContacts();
+    }
+
+    public void modifyContact(int i, ContactData contact) {
+        initContactEdition(i - 1);
+        fillContactForm(contact, false);
+        submitContactModification();
+        returnToHomePage();
+    }
+
+
     public void initContactCreation() {
         if(isElementPresent(By.tagName("h1"))
                 && wd.findElement(By.tagName("h1")).getText().equals("Edit / add address book entry")) {
