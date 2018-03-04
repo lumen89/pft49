@@ -6,10 +6,8 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 
-import java.util.*;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.testng.Assert.*;
 
 public class ContactModificationTests extends TestBase {
 
@@ -25,9 +23,9 @@ public class ContactModificationTests extends TestBase {
                     .withTitle("title 1")
                     .withCompany("company 1")
                     .withAddress("address 1")
-                    .withHome("9999999")
-                    .withMobile("8888888")
-                    .withWork("77777777")
+                    .withHomePhone("9999999")
+                    .withMobilePhone("8888888")
+                    .withWorkPhone("77777777")
                     .withFax("6666666")
                     .withEmail("email1@test.com")
                     .withEmail2("email2@test.com")
@@ -54,9 +52,9 @@ public class ContactModificationTests extends TestBase {
                 .withTitle("edit_title 1")
                 .withCompany("company 1")
                 .withAddress("address 1")
-                .withHome("9999999")
-                .withMobile("8888888")
-                .withWork("77777777")
+                .withHomePhone("9999999")
+                .withMobilePhone("8888888")
+                .withWorkPhone("77777777")
                 .withFax("6666666")
                 .withEmail("editEmail1@test.com")
                 .withEmail2("editEmail2@test.com")
