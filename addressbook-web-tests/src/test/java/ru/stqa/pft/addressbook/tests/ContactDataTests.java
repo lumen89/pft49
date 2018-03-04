@@ -13,7 +13,7 @@ public class ContactDataTests extends TestBase {
 
 
     @Test
-    public void testContactPhones() {
+    public void testContactsData() {
         app.goTo().home();
         ContactData contact = app.contact().all().iterator().next();
         ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
@@ -42,8 +42,8 @@ public class ContactDataTests extends TestBase {
         return contact.getAddress();
     }
 
-    public static String cleaned(String phone){
-        return phone.replaceAll("\\s", "").replaceAll("[-()]", "");
+    public static String cleaned(String data){
+        return data.replaceAll("\\s", "").replaceAll("[-()]", "");
     }
 
 }
