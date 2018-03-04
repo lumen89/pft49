@@ -25,7 +25,7 @@ public class ContactCreationTests extends TestBase {
                 .withMobilePhone("8888888")
                 .withWorkPhone("77777777")
                 .withFax("6666666")
-                .withEmail("email1@test.com")
+                .withEmail1("email1@test.com")
                 .withEmail2("email2@test.com")
                 .withEmail3("email3@test.com")
                 .withHomepage("localhost.com")
