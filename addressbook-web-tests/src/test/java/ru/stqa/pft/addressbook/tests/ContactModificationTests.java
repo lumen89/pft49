@@ -68,9 +68,10 @@ public class ContactModificationTests extends TestBase {
                 .withNotes("test notes")
                 .withGroup("edit_group 1");
         app.contact().modify(contact);
-        Set<ContactData> after = app.contact().all();
 
-        assertEquals(after.size(), before.size());
+        assertThat(app.contact().count(), equalTo(before.size()));
+
+        Contacts after = app.contact().all();
         assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
 
     }

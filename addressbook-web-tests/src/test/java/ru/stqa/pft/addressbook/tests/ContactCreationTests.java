@@ -1,6 +1,5 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
@@ -8,7 +7,6 @@ import ru.stqa.pft.addressbook.model.Contacts;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.testng.Assert.*;
 
 public class ContactCreationTests extends TestBase {
 
@@ -37,9 +35,11 @@ public class ContactCreationTests extends TestBase {
                 .withNotes("test notes")
                 .withGroup("edit_group 1");
         app.contact().create(contact, false);
-        Contacts after = app.contact().all();
 
-        assertThat(after.size(), equalTo(before.size() + 1));
+
+        assertThat(app.contact().count(), equalTo(before.size() + 1));
+
+        Contacts after = app.contact().all();
         assertThat(after, equalTo(before.withAdded(contact.withId(after
                 .stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
     }
