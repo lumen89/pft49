@@ -95,12 +95,12 @@ public class ContactHelper extends HelperBase {
         click(By.name("notes"));
         type(By.name("notes"), contactData.getNotes());
 
-        if (creation) {
+/*        if (creation) {
             new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
         } else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
-
+*/
         attach(By.name("photo"), contactData.getPhoto());
     }
 
