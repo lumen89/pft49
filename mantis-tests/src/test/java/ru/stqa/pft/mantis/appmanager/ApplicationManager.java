@@ -1,4 +1,4 @@
-package ru.stqa.pft.addressbook.appmanager;
+package ru.stqa.pft.mantis.appmanager;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,7 +8,6 @@ import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.safari.SafariDriver;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
@@ -18,10 +17,6 @@ public class ApplicationManager {
     private final Properties properties;
     WebDriver wd;
 
-    private SessionHelper sessionHelper;
-    private NavigationHelper navigationHelper;
-    private GroupHelper groupHelper;
-    private ContactHelper contactHelper;
     private String browser;
 
     public ApplicationManager(String browser) {
@@ -44,27 +39,10 @@ public class ApplicationManager {
 
         wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         wd.get(properties.getProperty("web.baseUrl"));
-        groupHelper = new GroupHelper(wd);
-        navigationHelper = new NavigationHelper(wd);
-        sessionHelper = new SessionHelper(wd);
-        contactHelper = new ContactHelper(wd);
-        sessionHelper.login(properties.getProperty("web.adminLogin"), properties.getProperty("web.adminPassword"));
-    }
+       }
 
 
     public void stop() {
         wd.quit();
-    }
-
-    public GroupHelper group() {
-        return groupHelper;
-    }
-
-    public NavigationHelper goTo() {
-        return navigationHelper;
-    }
-
-    public ContactHelper contact() {
-        return contactHelper;
     }
 }
